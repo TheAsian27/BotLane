@@ -11,6 +11,9 @@ using std::string;
 2 - trade
 3 - all-in
 */
+public enum;
+
+
 public class Champion {
 	int stat [4];
 	boolean role;
