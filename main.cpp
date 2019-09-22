@@ -66,31 +66,19 @@ public:
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Xayah") {
-			stat[0] = 0;
-			stat[1] = 2;
-			stat[2] = 3;
-			role == true;
-		}
 		else if (s == "Lucian") {
 			stat[0] = 0;
 			stat[1] = 5;
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Ashe" || s == "Miss Fortune") {
+		else if (s == "Ashe" || s == "Miss_Fortune") {
 			stat[0] = 5;
 			stat[1] = 0;
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Kai' Sa") {
-			stat[0] = 0;
-			stat[1] = 2;
-			stat[2] = 3;
-			role == true;
-		}
-		else if (s == "Vayne") {
+		else if ((s == "Vayne" || s == "Kai'_Sa") || s == "Xayah") {
 			stat[0] = 0;
 			stat[1] = 2;
 			stat[2] = 3;
@@ -127,7 +115,7 @@ public:
 			stat[2] = 0;
 			role == false;
 		}
-		else if ((s == "Xerath" || s == "Vel' Koz") || (s == "Brand" || s == "Zyra")) {
+		else if ((s == "Xerath" || s == "Vel'_Koz") || (s == "Brand" || s == "Zyra")) {
 			stat[0] = 5;
 			stat[1] = 0;
 			stat[2] = 0;
@@ -157,7 +145,7 @@ public:
 			stat[2] = 0;
 			role == false;
 		}
-		else if (s == "Maokai" || s == "Tahm Kench") {
+		else if (s == "Maokai" || s == "Tahm_Kench") {
 			stat[0] = 1;
 			stat[1] = 0;
 			stat[2] = 4;
@@ -173,7 +161,10 @@ public:
 };
 
 int getTeamScore(Champion a, Champion b, int i) {
-	if (a.getRole() == b.getRole()) {
+	if (a.getRole() && b.getRole()) {
+		return (2*(a.getStat(i)+b.getStat(i)));
+	} 
+	else if (!a.getRole() || !b.getRole()) {
 		return (2*(a.getStat(i)+b.getStat(i)));
 	} 
 	else if (a.getRole()) {
@@ -189,13 +180,13 @@ int getTeamScore(Champion a, Champion b, int i) {
 
 int main () {
 	string champions[4];
-	cout << "input ADC\n";
+	cout << "Your Champion\n>";
 	cin >> champions[0];
-	cout << "input Supp\n";
+	cout << "Ally Champion\n>";
 	cin >> champions[1];
-	cout << "input enemy ADC\n";
+	cout << "Enemy Champion\n>";
 	cin >> champions[2];
-	cout << "input enemy Supp\n";
+	cout << "Enemy Champion\n>";
 	cin >> champions[3];
 	
 	Champion a1(champions[0]);
