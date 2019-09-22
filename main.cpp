@@ -10,14 +10,13 @@ Support:
 0 - poke
 1 - sustain
 2 - all-in
-
 ADC:
 0 - poke
 1 - short trade
 2 - long trade
 */
 
-public bool isAllIn(string s) {
+ bool isAllIn(string s) {
 	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Brahm", "Shen", "Pyke"};
 	for (string str : champs) {
 		if (str == s) {
@@ -26,7 +25,7 @@ public bool isAllIn(string s) {
 	}
 	return false;
 }
-public bool isPokeSus(string s) {
+bool isPokeSus(string s) {
 	string champs[] = {"Yumi", "Nami", "Sona", "Janna", "Bard", "Karma", "Lulu"};
 	for (string str : champs) {
 		if (str == s) {
@@ -35,15 +34,15 @@ public bool isPokeSus(string s) {
 	}
 	return false;
 }
-}
 
 class Champion {
 public:
 	int stat [3];
-	boolean role;
+	bool role;
+	int getStat(int i) {return stat[i];}
+	bool getRole() {return role;}
 	Champion (string s) {
-		}
-		else if (s == "Jhin" || s == "Sivir") {
+		if (s == "Jhin" || s == "Sivir") {
 			stat[0] = 1;
 			stat[1] = 4;
 			stat[2] = 0;
@@ -164,22 +163,24 @@ public:
 			stat[2] = 4;
 			role == false;
 		}
-
-
+		else {
+		    stat[0] = 0;
+			stat[1] = 0;
+			stat[2] = 0;
+			role == false;
+		}
 	}
-	public int getStat(int i) {return stat[i];}
-	public bool getRole() {return role;}
-}
+};
 
-public int getTeamScore(Champion a, Champion b, int i) {
-	if (a.getRole() == b.getRole() {
-		return (2*(a.getStat(i)+b.getStat(i));
+int getTeamScore(Champion a, Champion b, int i) {
+	if (a.getRole() == b.getRole()) {
+		return (2*(a.getStat(i)+b.getStat(i)));
 	} 
 	else if (a.getRole()) {
-		return (a.getStat(i) + (3*(b.getStat(i)));
+		return (a.getStat(i) + (3*(b.getStat(i))));
 	}
 	else if (b.getRole()) {
-		return (b.getStat(i) + (3*(a.getStat(i)));
+		return (b.getStat(i) + (3*(a.getStat(i))));
 	}
 	else {
 		return 0;
@@ -187,25 +188,24 @@ public int getTeamScore(Champion a, Champion b, int i) {
 }
 
 int main () {
-public:
 	string champions[4];
-	cout << "input ADC";
+	cout << "input ADC\n";
 	cin >> champions[0];
-	cout << "input Supp";
+	cout << "input Supp\n";
 	cin >> champions[1];
-	cout << "input enemy ADC";
+	cout << "input enemy ADC\n";
 	cin >> champions[2];
-	cout << "input enemy Supp";
+	cout << "input enemy Supp\n";
 	cin >> champions[3];
 	
-	Champion a1 = new Champion(champions[0]);
-	Champion a2 = new Champion(champions[1]);
-	Champion e1 = new Champion(champions[2]);
-	Champion e2 = new Champion(champions[3]);
+	Champion a1(champions[0]);
+	Champion a2(champions[1]);
+	Champion e1(champions[2]);
+	Champion e2(champions[3]);
 	int scores[3];
 	for (int i = 0; i < 3; i++) {
 		scores[i] = getTeamScore(a1,a2,i) - getTeamScore(e1,e2,i);
 	}
-	cout << "catch:" << scores[0] << " poke:" << scores[1] << " trade:" << scores[2] << " all-in:" << scores [3] << endl;
+	cout << "poke:" << scores[0] << " trade:" << scores[1] << " all-in:" << scores[2];
 	return 0;
 }
