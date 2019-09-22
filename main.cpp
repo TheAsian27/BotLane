@@ -15,7 +15,7 @@ ADC:
 0 - poke
 1 - short trade
 2 - long trade
-*
+*/
 
 public bool isAllIn(string s) {
 	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Brahm", "Shen", "Pyke"};
