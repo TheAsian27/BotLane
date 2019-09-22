@@ -18,7 +18,7 @@ ADC:
 *
 
 public bool isAllIn(string s) {
-	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Brahm"};
+	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Brahm", "Shen", "Pyke"};
 	for (string str : champs) {
 		if (str == s) {
 			return true;
@@ -103,7 +103,7 @@ public:
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Draven") {
+		else if (s == "Draven" || s == "Yasuo") {
 			stat[0] = 0;
 			stat[1] = 0;
 			stat[2] = 69;
@@ -150,6 +150,18 @@ public:
 			stat[0] = 0;
 			stat[1] = 2;
 			stat[2] = 3;
+			role == false;
+		}
+		else if (s == "Lux" || s == "Morgana") {
+			stat[0] = 4;
+			stat[1] = 1;
+			stat[2] = 0;
+			role == false;
+		}
+		else if (s == "Maokai" || s == "Tahm Kench") {
+			stat[0] = 1;
+			stat[1] = 0;
+			stat[2] = 4;
 			role == false;
 		}
 
