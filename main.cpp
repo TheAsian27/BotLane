@@ -18,7 +18,16 @@ ADC:
 *
 
 public bool isAllIn(string s) {
-	string champs[] = {}
+	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Brahm"};
+	for (string str : champs) {
+		if (str == s) {
+			return true;
+		}
+	}
+	return false;
+}
+public bool isPokeSus(string s) {
+	string champs[] = {"Yumi", "Nami", "Sona", "Janna", "Bard", "Karma", "Lulu"};
 	for (string str : champs) {
 		if (str == s) {
 			return true;
@@ -33,25 +42,14 @@ public:
 	int stat [3];
 	boolean role;
 	Champion (string s) {
-		if (s == "Blitzcrank" || ) {
-			stat[0] = 0;
-			stat[1] = 0;
-			stat[2] = 5;
-			role == false;
 		}
-		else if (s == "Jhin") {
+		else if (s == "Jhin" || s == "Sivir") {
 			stat[0] = 1;
 			stat[1] = 4;
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Twitch") {
-			stat[0] = 0;
-			stat[1] = 0;
-			stat[2] = 5;
-			role == true;
-		}
-		else if (s == "Tristana") {
+		else if (s == "Twitch" || s == "Tristana") {
 			stat[0] = 0;
 			stat[1] = 0;
 			stat[2] = 5;
@@ -81,7 +79,7 @@ public:
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Ashe") {
+		else if (s == "Ashe" || s == "Miss Fortune") {
 			stat[0] = 5;
 			stat[1] = 0;
 			stat[2] = 0;
@@ -93,28 +91,22 @@ public:
 			stat[2] = 3;
 			role == true;
 		}
-		else if (s == "Miss Fortune") {
-			stat[0] = 5;
-			stat[1] = 0;
-			stat[2] = 0;
-			role == true;
-		}
 		else if (s == "Vayne") {
 			stat[0] = 0;
 			stat[1] = 2;
 			stat[2] = 3;
 			role == true;
 		}
-		else if (s == "Sivir") {
-			stat[0] = 0;
-			stat[1] = 5;
+		else if (s == "Ezreal") {
+			stat[0] = 4;
+			stat[1] = 1;
 			stat[2] = 0;
 			role == true;
 		}
-		else if (s == "Ezreal") {
-			stat[0] = 5;
+		else if (s == "Draven") {
+			stat[0] = 0;
 			stat[1] = 0;
-			stat[2] = 0;
+			stat[2] = 69;
 			role == true;
 		}
 		else if (s == "Thresh") {
@@ -123,18 +115,44 @@ public:
 			stat[2] = 5;
 			role == false;
 		}
-		else if ((s == "Blitzcrank" || s == "Brahm") || s == "Rakan") {
+
+		else if (isAllIn(s)) {
 			stat[0] = 0;
 			stat[1] = 0;
 			stat[2] = 5;
 			role == false;
 		}
-		else if (s == "") {
-			stat[0] = 0;
+		else if (isPokeSus(s)) {
+			stat[0] = 3;
+			stat[1] = 2;
+			stat[2] = 0;
+			role == false;
+		}
+		else if ((s == "Xerath" || s == "Vel' Koz") || (s == "Brand" || s == "Zyra")) {
+			stat[0] = 5;
 			stat[1] = 0;
 			stat[2] = 0;
 			role == false;
 		}
+		else if (s == "Zilean" || s == "Fiddlesticks") {
+			stat[0] = 3;
+			stat[1] = 0;
+			stat[2] = 2;
+			role == false;
+		}
+		else if (s == "Soraka") {
+			stat[0] = 1;
+			stat[1] = 4;
+			stat[2] = 0;
+			role == false;
+		}
+		else if (s == "Taric" || s == "Rakan") {
+			stat[0] = 0;
+			stat[1] = 2;
+			stat[2] = 3;
+			role == false;
+		}
+
 
 	}
 	public int getStat(int i) {return stat[i];}
