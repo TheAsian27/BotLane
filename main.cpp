@@ -202,8 +202,6 @@ public:
 	Champion a2 = new Champion(champions[1]);
 	Champion e1 = new Champion(champions[2]);
 	Champion e2 = new Champion(champions[3]);
-	bool allyDoubleSupp = !a1.getRole() && !a2.getRole;
-	bool enemyDoubleSupp = !e1.getRole() && !e2.getRole;
 	int scores[3];
 	for (int i = 0; i < 3; i++) {
 		scores[i] = getTeamScore(a1,a2,i) - getTeamScore(e1,e2,i);
