@@ -17,7 +17,7 @@ ADC:
 */
 
  bool isAllIn(string s) {
-	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Brahm", "Shen", "Pyke"};
+	string champs[] = {"Blitzcrank", "Leona", "Nautilus", "Alistar", "Braum", "Shen", "Pyke"};
 	for (string str : champs) {
 		if (str == s) {
 			return true;
